@@ -16,20 +16,20 @@ namespace SmiTo.Controllers
             _urlService = urlService;
         }
         [HttpPost]
-        public async Task<Results<Ok<GeneralResult>, BadRequest<GeneralResult>>> CreateURL([FromBody] CreateURLRequest request, [FromBody] Guid UserId)
+        public async Task<Results<Ok<GeneralResult>, BadRequest<GeneralResult>>> CreateURL([FromBody] CreateURLRequest request)
         {
-            var response = await _urlService.CreateAsync(request, UserId);
+            var response = await _urlService.CreateAsync(request);
             if (response.Success)
                 return TypedResults.Ok(response);
             return TypedResults.BadRequest(response);
         }
-        [HttpGet]
-        public async Task<Results<Ok<GeneralResult>, NotFound>> GetOriginalUrl([FromQuery] string ShortUrl)
+        [HttpGet("{ShortCode}")]
+        public async Task<Results<Ok<GeneralResult>, NotFound<GeneralResult>>> GetOriginalUrl([FromRoute] string ShortCode)
         {
-            var response = await _urlService.GetByShortCodeAsync(ShortUrl);
+            var response = await _urlService.GetByShortCodeAsync(ShortCode);
             if (response.Success)
                 return TypedResults.Ok(response);
-            return TypedResults.NotFound();
+            return TypedResults.NotFound(response);
         }
     }
 }

@@ -16,6 +16,7 @@ public static class ApplicationDependancyInjectionSetup
         //services.AddScoped<IVisitService, VisitService>();
         services.AddScoped<IAuthService, AuthService>();
         services.AddScoped<IShortCodeGenerator, ShortCodeGenerator>();
+        services.AddScoped<IUserService, UserService>();
         //.AddScoped<IAnalyticsService, AnalyticsService>();
     }
 }

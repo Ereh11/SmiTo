@@ -6,6 +6,7 @@ F:\SmiTo\SmiTo.Domain\obj\Debug\net9.0\SmiTo.Domain.GeneratedMSBuildEditorConfig
 F:\SmiTo\SmiTo.Domain\obj\Debug\net9.0\SmiTo.Domain.AssemblyInfoInputs.cache
 F:\SmiTo\SmiTo.Domain\obj\Debug\net9.0\SmiTo.Domain.AssemblyInfo.cs
 F:\SmiTo\SmiTo.Domain\obj\Debug\net9.0\SmiTo.Domain.csproj.CoreCompileInputs.cache
+F:\SmiTo\SmiTo.Domain\obj\Debug\net9.0\SmiTo.Domain.sourcelink.json
 F:\SmiTo\SmiTo.Domain\obj\Debug\net9.0\SmiTo.Domain.dll
 F:\SmiTo\SmiTo.Domain\obj\Debug\net9.0\refint\SmiTo.Domain.dll
 F:\SmiTo\SmiTo.Domain\obj\Debug\net9.0\SmiTo.Domain.pdb

@@ -10,6 +10,7 @@ F:\SmiTo\SmiTo.Application\obj\Debug\net9.0\SmiTo.Application.GeneratedMSBuildEd
 F:\SmiTo\SmiTo.Application\obj\Debug\net9.0\SmiTo.Application.AssemblyInfoInputs.cache
 F:\SmiTo\SmiTo.Application\obj\Debug\net9.0\SmiTo.Application.AssemblyInfo.cs
 F:\SmiTo\SmiTo.Application\obj\Debug\net9.0\SmiTo.Application.csproj.CoreCompileInputs.cache
+F:\SmiTo\SmiTo.Application\obj\Debug\net9.0\SmiTo.Application.sourcelink.json
 F:\SmiTo\SmiTo.Application\obj\Debug\net9.0\SmiTo.Ap.C2821C16.Up2Date
 F:\SmiTo\SmiTo.Application\obj\Debug\net9.0\SmiTo.Application.dll
 F:\SmiTo\SmiTo.Application\obj\Debug\net9.0\refint\SmiTo.Application.dll

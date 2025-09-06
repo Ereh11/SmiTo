@@ -8,8 +8,6 @@ public interface IURLRepository
     Task<URL?> GetByShortCodeAsync(string shortCode);
     Task<IEnumerable<URL>> GetByUserIdAsync(Guid userId, int page, int pageSize);
     Task<URL> CreateAsync(URL url);
-    Task<URL> UpdateAsync(URL url);
-    Task<bool> DeleteAsync(Guid id);
     Task<bool> ShortCodeExistsAsync(string shortCode);
     Task<int> GetTotalCountByUserIdAsync(Guid userId);
 }

@@ -14,17 +14,23 @@ public class URLService : IURLService
         _unitOfWork = unitOfWork;
         _shortCodeGenerator = shortCodeGenerator;
     }
-    public async Task<GeneralResult> CreateAsync(CreateURLRequest request, Guid userId)
+    public async Task<GeneralResult> CreateAsync(CreateURLRequest request)
     {
-        //var userExists = await _unitOfWork.UserRepository.GetByIdAsync(userId);
+        var userExists = await _unitOfWork.UserRepository.GetByIdAsync(request.userId);
+        if (userExists == null)
+        {
+            return GeneralResult.Failure(new List<string> { "User not found." });
+        }
         var shortCode =  await _shortCodeGenerator.GenerateUniqueShortCodeAsync();
 
         var url = new URL
         {
             OriginalUrl = request.OriginalUrl,
             ShortCode = shortCode,
-            UserId = userId,
-            ExpiresAt = request.ExpiresAt
+            UserId = request.userId,
+            ExpiresAt = request.ExpiresAt == null 
+                ? DateTime.UtcNow + TimeSpan.FromDays(30)
+                : request.ExpiresAt
         };
 
         var createdUrl = await _unitOfWork.URLRepository
@@ -34,18 +40,11 @@ public class URLService : IURLService
         return GeneralResult<URLResponse>.SuccessResult(MapToResponse(createdUrl), "Shortened URL created successfully.");
     }
 
-    public async Task<URLResponse?> GetByIdAsync(Guid id, Guid userId)
-    {
-        var url = await _unitOfWork.URLRepository.GetByIdAsync(id);
-        if (url == null || url.UserId != userId)
-            return null;
-
-        return MapToResponse(url);
-    }
-
     public async Task<GeneralResult> GetByShortCodeAsync(string shortCode)
     {
-        var url = await _unitOfWork.URLRepository.GetByShortCodeAsync(shortCode);
+        var url = await _unitOfWork.URLRepository
+            .GetByShortCodeAsync(shortCode);
+
         if (url == null)
         { 
             return GeneralResult.Failure(
@@ -60,7 +59,7 @@ public class URLService : IURLService
                 new List<string> { "This short URL has expired." }
                 );
         }
-        return GeneralResult<URLResponse>.SuccessResult(MapToResponse(url), "Shortened URL retrieved successfully.");
+        return GeneralResult<URLResponse>.SuccessResult(MapToResponse(url), "Original URL retrieved successfully.");
     }
 
     public async Task<URLListResponse> GetByUserIdAsync(Guid userId, int page = 1, int pageSize = 10)

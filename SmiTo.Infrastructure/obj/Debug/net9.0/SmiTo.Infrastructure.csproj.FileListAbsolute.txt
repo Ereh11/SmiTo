@@ -9,6 +9,7 @@ F:\SmiTo\SmiTo.Infrastructure\obj\Debug\net9.0\SmiTo.Infrastructure.GeneratedMSB
 F:\SmiTo\SmiTo.Infrastructure\obj\Debug\net9.0\SmiTo.Infrastructure.AssemblyInfoInputs.cache
 F:\SmiTo\SmiTo.Infrastructure\obj\Debug\net9.0\SmiTo.Infrastructure.AssemblyInfo.cs
 F:\SmiTo\SmiTo.Infrastructure\obj\Debug\net9.0\SmiTo.Infrastructure.csproj.CoreCompileInputs.cache
+F:\SmiTo\SmiTo.Infrastructure\obj\Debug\net9.0\SmiTo.Infrastructure.sourcelink.json
 F:\SmiTo\SmiTo.Infrastructure\obj\Debug\net9.0\SmiTo.In.061BAEC8.Up2Date
 F:\SmiTo\SmiTo.Infrastructure\obj\Debug\net9.0\SmiTo.Infrastructure.dll
 F:\SmiTo\SmiTo.Infrastructure\obj\Debug\net9.0\refint\SmiTo.Infrastructure.dll
