@@ -36,9 +36,9 @@ SmiTo is a URL shortening service built with ASP.NET Core. It allows users to ge
 
 ### Prerequisites
 
-- .NET 7 SDK
+- .NET 9 SDK
 - Visual Studio 2022
-- SQL Server (or compatible database)
+- SQL Server
 
 ### Installation
 
