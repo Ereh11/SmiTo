@@ -148,7 +148,6 @@ Create a shortened URL from a long URL.
 
 **Headers:**
 ```
-Authorization: Bearer <your_jwt_token>
 Content-Type: application/json
 ```
 
@@ -156,6 +155,7 @@ Content-Type: application/json
 ```json
 {
     "originalUrl": "https://github.com/username/repository",
+    "userid": d04e93bf-c71c-426f-89c5-08dded7f126
     "expiresAt": "2025-10-06T19:53:39.2868136Z" // Optional
 }
 ```
@@ -336,7 +336,6 @@ curl -X POST https://localhost:7121/api/user/auth/register \
 ```bash
 curl -X POST https://localhost:7121/api/url \
   -H "Content-Type: application/json" \
-  -H "Authorization: Bearer YOUR_JWT_TOKEN" \
   -d '{"originalUrl":"https://github.com/username/repository"}'
 ```
 
