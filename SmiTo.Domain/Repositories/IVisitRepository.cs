@@ -9,11 +9,11 @@ public interface IVisitRepository
     Task<int> GetTotalVisitCountByUrlIdAsync(Guid urlId);
     Task<Dictionary<string, int>> GetDeviceStatsAsync(Guid urlId, DateTime from, DateTime to);
     Task<Dictionary<string, int>> GetBrowserStatsAsync(Guid urlId, DateTime from, DateTime to);
-    Task<IEnumerable<DailyVisitStats>> GetVisitStatsByUrlIdAsync(Guid urlId, DateTime from, DateTime to);
+    Task<IEnumerable<DailyVisit>> GetVisitStatsByUrlIdAsync(Guid urlId, DateTime from, DateTime to);
     Task<int> GetUniqueVisitorCountByUrlIdAsync(Guid urlId, DateTime from, DateTime to);
 
 }
-public class DailyVisitStats
+public class DailyVisit
 {
     public DateTime Date { get; set; }
     public int VisitCount { get; set; }

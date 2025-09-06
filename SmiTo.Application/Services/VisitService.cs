@@ -54,10 +54,10 @@ public class VisitService : IVisitService
         return GeneralResult<String>.SuccessResult(url.OriginalUrl, "Visit tracked successfully");
     }
 
-    public async Task<GeneralResult> GetVisitsByUrlAsync(Guid urlId, Guid userId, int page = 1, int pageSize = 10)
+    public async Task<GeneralResult> GetVisitsByUrlAsync(Guid urlId, int page = 1, int pageSize = 10)
     {
         var url = await _unitOfWork.URLRepository.GetByIdAsync(urlId);
-        if (url == null || url.UserId != userId)
+        if (url == null)
         {
             return GeneralResult.Failure(new List<string> { "URL not found or access denied." }, "Access denied");
         }
@@ -68,10 +68,10 @@ public class VisitService : IVisitService
         return GeneralResult<List<VisitResponse>>.SuccessResult(visitResponses, "Visits retrieved successfully");
     }
 
-    public async Task<GeneralResult> GetVisitStatsAsync(Guid urlId, Guid userId, DateTime? from = null, DateTime? to = null)
+    public async Task<GeneralResult> GetVisitStatsAsync(Guid urlId, DateTime? from = null, DateTime? to = null)
     {
         var url = await _unitOfWork.URLRepository.GetByIdAsync(urlId);
-        if (url == null || url.UserId != userId)
+        if (url == null)
         {
             return GeneralResult.Failure(new List<string> { "URL not found or access denied." }, "Access denied");
         }
@@ -83,12 +83,18 @@ public class VisitService : IVisitService
         var totalClicks = await _unitOfWork.VisitRepository.GetTotalVisitCountByUrlIdAsync(urlId);
         var uniqueVisitors = await _unitOfWork.VisitRepository.GetUniqueVisitorCountByUrlIdAsync(urlId, from.Value, to.Value);
 
+        var dailyStatsDto = dailyStats.Select(d => new DailyVisitStats
+        {
+            Date = d.Date,
+            VisitCount = d.VisitCount,          // adjust property names if needed
+            UniqueVisitors = d.UniqueVisitors
+        }).ToList();
         var stats = new VisitStatsResponse
         {
             UrlId = urlId,
             TotalClicks = totalClicks,
             UniqueVisitors = uniqueVisitors,
-            DailyStats = (IEnumerable<DTOs.DailyVisitStats>)dailyStats,
+            DailyStats = dailyStatsDto,
             DateRange = new DateRangeResponse
             {
                 From = from.Value,

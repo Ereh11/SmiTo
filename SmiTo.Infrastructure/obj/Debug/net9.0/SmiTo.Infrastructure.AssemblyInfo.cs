@@ -14,7 +14,7 @@ using System.Reflection;
 [assembly: System.Reflection.AssemblyCompanyAttribute("SmiTo.Infrastructure")]
 [assembly: System.Reflection.AssemblyConfigurationAttribute("Debug")]
 [assembly: System.Reflection.AssemblyFileVersionAttribute("1.0.0.0")]
-[assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.0+8d411ea434dd05e4994ffedbb8ea32982f1fc773")]
+[assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.0+be6ee5cd21d194bcc9f87093dcb55ec5dde67f50")]
 [assembly: System.Reflection.AssemblyProductAttribute("SmiTo.Infrastructure")]
 [assembly: System.Reflection.AssemblyTitleAttribute("SmiTo.Infrastructure")]
 [assembly: System.Reflection.AssemblyVersionAttribute("1.0.0.0")]

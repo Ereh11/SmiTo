@@ -22,9 +22,8 @@ public class VisitController : ControllerBase
         [FromQuery] int page = 1,
         [FromQuery] int pageSize = 10)
     {
-        var userId = GetCurrentUserId();
 
-        var result = await _visitService.GetVisitsByUrlAsync(urlId, userId.Value, page, pageSize);
+        var result = await _visitService.GetVisitsByUrlAsync(urlId, page, pageSize);
 
         if (!result.Success)
             return TypedResults.BadRequest(result);
@@ -38,19 +37,12 @@ public class VisitController : ControllerBase
         [FromQuery] DateTime? from = null,
         [FromQuery] DateTime? to = null)
     {
-        var userId = GetCurrentUserId();
 
-        var result = await _visitService.GetVisitStatsAsync(urlId, userId.Value, from, to);
+        var result = await _visitService.GetVisitStatsAsync(urlId, from, to);
 
         if (!result.Success)
             return TypedResults.BadRequest(result);
 
         return TypedResults.Ok(result);
-    }
-
-    private Guid? GetCurrentUserId()
-    {
-        var userIdClaim = User.FindFirst(ClaimTypes.NameIdentifier)?.Value;
-        return Guid.TryParse(userIdClaim, out var userId) ? userId : null;
     }
 }

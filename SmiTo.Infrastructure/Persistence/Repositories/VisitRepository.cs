@@ -51,12 +51,12 @@ public class VisitRepository : IVisitRepository
             .ToDictionaryAsync(g => g.Key, g => g.Count());
     }
 
-    public async Task<IEnumerable<DailyVisitStats>> GetVisitStatsByUrlIdAsync(Guid urlId, DateTime from, DateTime to)
+    public async Task<IEnumerable<DailyVisit>> GetVisitStatsByUrlIdAsync(Guid urlId, DateTime from, DateTime to)
     {
         return await _context.Visits
             .Where(v => v.URLId == urlId && v.VisitedAt >= from && v.VisitedAt <= to)
             .GroupBy(v => v.VisitedAt.Date)
-            .Select(g => new DailyVisitStats
+            .Select(g => new DailyVisit
             {
                 Date = g.Key,
                 VisitCount = g.Count(),
