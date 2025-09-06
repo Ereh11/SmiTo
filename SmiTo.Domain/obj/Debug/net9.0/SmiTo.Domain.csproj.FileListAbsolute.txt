@@ -1,0 +1,12 @@
+F:\SmiTo\SmiTo.Domain\bin\Debug\net9.0\SmiTo.Domain.deps.json
+F:\SmiTo\SmiTo.Domain\bin\Debug\net9.0\SmiTo.Domain.dll
+F:\SmiTo\SmiTo.Domain\bin\Debug\net9.0\SmiTo.Domain.pdb
+F:\SmiTo\SmiTo.Domain\obj\Debug\net9.0\SmiTo.Domain.csproj.AssemblyReference.cache
+F:\SmiTo\SmiTo.Domain\obj\Debug\net9.0\SmiTo.Domain.GeneratedMSBuildEditorConfig.editorconfig
+F:\SmiTo\SmiTo.Domain\obj\Debug\net9.0\SmiTo.Domain.AssemblyInfoInputs.cache
+F:\SmiTo\SmiTo.Domain\obj\Debug\net9.0\SmiTo.Domain.AssemblyInfo.cs
+F:\SmiTo\SmiTo.Domain\obj\Debug\net9.0\SmiTo.Domain.csproj.CoreCompileInputs.cache
+F:\SmiTo\SmiTo.Domain\obj\Debug\net9.0\SmiTo.Domain.dll
+F:\SmiTo\SmiTo.Domain\obj\Debug\net9.0\refint\SmiTo.Domain.dll
+F:\SmiTo\SmiTo.Domain\obj\Debug\net9.0\SmiTo.Domain.pdb
+F:\SmiTo\SmiTo.Domain\obj\Debug\net9.0\ref\SmiTo.Domain.dll

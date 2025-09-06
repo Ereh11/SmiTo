@@ -1,0 +1,17 @@
+F:\SmiTo\SmiTo.Application\bin\Debug\net9.0\SmiTo.Application.deps.json
+F:\SmiTo\SmiTo.Application\bin\Debug\net9.0\SmiTo.Application.dll
+F:\SmiTo\SmiTo.Application\bin\Debug\net9.0\SmiTo.Application.pdb
+F:\SmiTo\SmiTo.Application\bin\Debug\net9.0\SmiTo.Domain.dll
+F:\SmiTo\SmiTo.Application\bin\Debug\net9.0\SmiTo.Infrastructure.dll
+F:\SmiTo\SmiTo.Application\bin\Debug\net9.0\SmiTo.Domain.pdb
+F:\SmiTo\SmiTo.Application\bin\Debug\net9.0\SmiTo.Infrastructure.pdb
+F:\SmiTo\SmiTo.Application\obj\Debug\net9.0\SmiTo.Application.csproj.AssemblyReference.cache
+F:\SmiTo\SmiTo.Application\obj\Debug\net9.0\SmiTo.Application.GeneratedMSBuildEditorConfig.editorconfig
+F:\SmiTo\SmiTo.Application\obj\Debug\net9.0\SmiTo.Application.AssemblyInfoInputs.cache
+F:\SmiTo\SmiTo.Application\obj\Debug\net9.0\SmiTo.Application.AssemblyInfo.cs
+F:\SmiTo\SmiTo.Application\obj\Debug\net9.0\SmiTo.Application.csproj.CoreCompileInputs.cache
+F:\SmiTo\SmiTo.Application\obj\Debug\net9.0\SmiTo.Ap.C2821C16.Up2Date
+F:\SmiTo\SmiTo.Application\obj\Debug\net9.0\SmiTo.Application.dll
+F:\SmiTo\SmiTo.Application\obj\Debug\net9.0\refint\SmiTo.Application.dll
+F:\SmiTo\SmiTo.Application\obj\Debug\net9.0\SmiTo.Application.pdb
+F:\SmiTo\SmiTo.Application\obj\Debug\net9.0\ref\SmiTo.Application.dll

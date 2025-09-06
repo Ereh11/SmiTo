@@ -1,0 +1,6 @@
+@SmiTo_HostAddress = http://localhost:5081
+
+GET {{SmiTo_HostAddress}}/weatherforecast/
+Accept: application/json
+
+###

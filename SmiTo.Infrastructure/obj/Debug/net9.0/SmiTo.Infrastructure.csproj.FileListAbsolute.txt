@@ -1,0 +1,17 @@
+F:\SmiTo\SmiTo.Infrastructure\bin\Debug\net9.0\SmiTo.Infrastructure.deps.json
+F:\SmiTo\SmiTo.Infrastructure\bin\Debug\net9.0\SmiTo.Infrastructure.runtimeconfig.json
+F:\SmiTo\SmiTo.Infrastructure\bin\Debug\net9.0\SmiTo.Infrastructure.dll
+F:\SmiTo\SmiTo.Infrastructure\bin\Debug\net9.0\SmiTo.Infrastructure.pdb
+F:\SmiTo\SmiTo.Infrastructure\bin\Debug\net9.0\SmiTo.Domain.dll
+F:\SmiTo\SmiTo.Infrastructure\bin\Debug\net9.0\SmiTo.Domain.pdb
+F:\SmiTo\SmiTo.Infrastructure\obj\Debug\net9.0\SmiTo.Infrastructure.csproj.AssemblyReference.cache
+F:\SmiTo\SmiTo.Infrastructure\obj\Debug\net9.0\SmiTo.Infrastructure.GeneratedMSBuildEditorConfig.editorconfig
+F:\SmiTo\SmiTo.Infrastructure\obj\Debug\net9.0\SmiTo.Infrastructure.AssemblyInfoInputs.cache
+F:\SmiTo\SmiTo.Infrastructure\obj\Debug\net9.0\SmiTo.Infrastructure.AssemblyInfo.cs
+F:\SmiTo\SmiTo.Infrastructure\obj\Debug\net9.0\SmiTo.Infrastructure.csproj.CoreCompileInputs.cache
+F:\SmiTo\SmiTo.Infrastructure\obj\Debug\net9.0\SmiTo.In.061BAEC8.Up2Date
+F:\SmiTo\SmiTo.Infrastructure\obj\Debug\net9.0\SmiTo.Infrastructure.dll
+F:\SmiTo\SmiTo.Infrastructure\obj\Debug\net9.0\refint\SmiTo.Infrastructure.dll
+F:\SmiTo\SmiTo.Infrastructure\obj\Debug\net9.0\SmiTo.Infrastructure.pdb
+F:\SmiTo\SmiTo.Infrastructure\obj\Debug\net9.0\SmiTo.Infrastructure.genruntimeconfig.cache
+F:\SmiTo\SmiTo.Infrastructure\obj\Debug\net9.0\ref\SmiTo.Infrastructure.dll
