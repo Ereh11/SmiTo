@@ -10,13 +10,14 @@ public static class ApplicationDependancyInjectionSetup
 {
     public static void AddApplicationServices(this IServiceCollection services)
     {
-        services.AddScoped<IURLService, URLService>();
 
         services.AddValidatorsFromAssemblyContaining<RegisterRequestValidator>();
-        //services.AddScoped<IVisitService, VisitService>();
+        services.AddScoped<IURLService, URLService>();
+        services.AddScoped<IVisitService, VisitService>();
         services.AddScoped<IAuthService, AuthService>();
         services.AddScoped<IShortCodeGenerator, ShortCodeGenerator>();
         services.AddScoped<IUserService, UserService>();
-        //.AddScoped<IAnalyticsService, AnalyticsService>();
+
+        
     }
 }

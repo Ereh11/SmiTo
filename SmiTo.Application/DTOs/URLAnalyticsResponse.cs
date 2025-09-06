@@ -1,10 +1,11 @@
 ﻿namespace SmiTo.Application.DTOs;
 
 public record URLAnalyticsResponse(
-    Guid URLId,
+    Guid Id,
     string ShortCode,
     string OriginalUrl,
     int TotalClicks,
-    Dictionary<DateTime, int> DailyClicks,
-    IEnumerable<VisitResponse> RecentVisits
+    IEnumerable<DailyVisitStats> DailyStats,
+    IEnumerable<VisitResponse> RecentVisits,
+    VisitStatsResponse? DetailedStats = null
 );

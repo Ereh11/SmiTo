@@ -9,6 +9,7 @@ namespace SmiTo.Application.Interfaces;
 
 public interface IVisitService
 {
-    Task<bool> RecordVisitAsync(string shortCode, CreateVisitRequest request);
-    Task<string?> RedirectAsync(string shortCode, CreateVisitRequest request);
+    Task<GeneralResult> TrackVisitAndRedirectAsync(string shortCode, string visitorIp, string userAgent, string? referrer = null);
+    Task<GeneralResult> GetVisitStatsAsync(Guid urlId, Guid userId, DateTime? from = null, DateTime? to = null);
+    Task<GeneralResult> GetVisitsByUrlAsync(Guid urlId, Guid userId, int page = 1, int pageSize = 10);
 }

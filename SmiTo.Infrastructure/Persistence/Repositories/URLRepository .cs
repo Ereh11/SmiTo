@@ -38,30 +38,15 @@ public class URLRepository : IURLRepository
             .ToListAsync();
     }
 
-    public async Task<URL> CreateAsync(URL url)
+    public async Task CreateAsync(URL url)
     {
-        _context.URLs.Add(url);
-        await _context.SaveChangesAsync();
-        return url;
+        await _context.URLs.AddAsync(url);
     }
 
-    public async Task<URL> UpdateAsync(URL url)
+    public async Task UpdateAsync(URL url)
     {
-        _context.URLs.Update(url);
-        await _context.SaveChangesAsync();
-        return url;
+
     }
-
-    public async Task<bool> DeleteAsync(Guid id)
-    {
-        var url = await _context.URLs.FindAsync(id);
-        if (url == null) return false;
-
-        url.UpdatedAt = DateTime.UtcNow;
-        await _context.SaveChangesAsync();
-        return true;
-    }
-
     public async Task<bool> ShortCodeExistsAsync(string shortCode)
     {
         return await _context.URLs.AnyAsync(u => u.ShortCode == shortCode);

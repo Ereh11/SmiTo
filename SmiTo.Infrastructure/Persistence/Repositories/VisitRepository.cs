@@ -14,11 +14,17 @@ public class VisitRepository : IVisitRepository
         _context = context;
     }
 
-    public async Task<Visit> CreateAsync(Visit visit)
+    public async Task CreateAsync(Visit visit)
     {
-        _context.Visits.Add(visit);
-        await _context.SaveChangesAsync();
-        return visit;
+        await _context.Visits.AddAsync(visit);
+    }
+
+    public async Task<Dictionary<string, int>> GetBrowserStatsAsync(Guid urlId, DateTime from, DateTime to)
+    {
+        return await _context.Visits
+            .Where(v => v.URLId == urlId && v.VisitedAt >= from && v.VisitedAt <= to)
+            .GroupBy(v => v.Browser)
+            .ToDictionaryAsync(g => g.Key, g => g.Count());
     }
 
     public async Task<IEnumerable<Visit>> GetByUrlIdAsync(Guid urlId, int page, int pageSize)
@@ -33,18 +39,39 @@ public class VisitRepository : IVisitRepository
 
     public async Task<int> GetTotalVisitCountByUrlIdAsync(Guid urlId)
     {
-        return await _context.Visits.CountAsync(v => v.URLId == urlId);
+        return await _context.Visits
+            .CountAsync(v => v.URLId == urlId);
     }
 
-    public async Task<Dictionary<DateTime, int>> GetVisitStatsByUrlIdAsync(Guid urlId, DateTime from, DateTime to)
+    public async Task<Dictionary<string, int>> GetDeviceStatsAsync(Guid urlId, DateTime from, DateTime to)
     {
-        var visits = await _context.Visits
+        return await _context.Visits
+            .Where(v => v.URLId == urlId && v.VisitedAt >= from && v.VisitedAt <= to)
+            .GroupBy(v => v.DeviceType)
+            .ToDictionaryAsync(g => g.Key, g => g.Count());
+    }
+
+    public async Task<IEnumerable<DailyVisitStats>> GetVisitStatsByUrlIdAsync(Guid urlId, DateTime from, DateTime to)
+    {
+        return await _context.Visits
             .Where(v => v.URLId == urlId && v.VisitedAt >= from && v.VisitedAt <= to)
             .GroupBy(v => v.VisitedAt.Date)
-            .Select(g => new { Date = g.Key, Count = g.Count() })
-            .OrderBy(x => x.Date)
+            .Select(g => new DailyVisitStats
+            {
+                Date = g.Key,
+                VisitCount = g.Count(),
+                UniqueVisitors = g.Select(v => v.VisitorIp).Distinct().Count()
+            })
+            .OrderBy(d => d.Date)
             .ToListAsync();
+    }
 
-        return visits.ToDictionary(x => x.Date, x => x.Count);
+    public async Task<int> GetUniqueVisitorCountByUrlIdAsync(Guid urlId, DateTime from, DateTime to)
+    {
+        return await _context.Visits
+            .Where(v => v.URLId == urlId && v.VisitedAt >= from && v.VisitedAt <= to)
+            .Select(v => v.VisitorIp)
+            .Distinct()
+            .CountAsync();
     }
 }

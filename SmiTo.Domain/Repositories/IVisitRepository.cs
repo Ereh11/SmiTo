@@ -1,16 +1,22 @@
 ﻿using SmiTo.Domain.Entities;
-using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 
 namespace SmiTo.Domain.Repositories;
 
 public interface IVisitRepository
 {
-    Task<Visit> CreateAsync(Visit visit);
-    Task<IEnumerable<Visit>> GetByUrlIdAsync(Guid urlId, int page, int pageSize);
+    Task CreateAsync(Visit visit);
+    Task<IEnumerable<Visit>> GetByUrlIdAsync(Guid urlId, int page = 1, int pageSize = 10);
     Task<int> GetTotalVisitCountByUrlIdAsync(Guid urlId);
-    Task<Dictionary<DateTime, int>> GetVisitStatsByUrlIdAsync(Guid urlId, DateTime from, DateTime to);
+    Task<Dictionary<string, int>> GetDeviceStatsAsync(Guid urlId, DateTime from, DateTime to);
+    Task<Dictionary<string, int>> GetBrowserStatsAsync(Guid urlId, DateTime from, DateTime to);
+    Task<IEnumerable<DailyVisitStats>> GetVisitStatsByUrlIdAsync(Guid urlId, DateTime from, DateTime to);
+    Task<int> GetUniqueVisitorCountByUrlIdAsync(Guid urlId, DateTime from, DateTime to);
+
 }
+public class DailyVisitStats
+{
+    public DateTime Date { get; set; }
+    public int VisitCount { get; set; }
+    public int UniqueVisitors { get; set; } = 0;
+}
+

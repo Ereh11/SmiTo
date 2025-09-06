@@ -33,10 +33,12 @@ public class URLService : IURLService
                 : request.ExpiresAt
         };
 
-        var createdUrl = await _unitOfWork.URLRepository
+        await _unitOfWork.URLRepository
             .CreateAsync(url);
         await _unitOfWork.SaveChangesAsync();
-        
+        var createdUrl = await _unitOfWork.URLRepository
+            .GetByShortCodeAsync(shortCode);
+
         return GeneralResult<URLResponse>.SuccessResult(MapToResponse(createdUrl), "Shortened URL created successfully.");
     }
 
@@ -77,28 +79,6 @@ public class URLService : IURLService
         );
     }
 
-    public async Task<URLAnalyticsResponse?> GetAnalyticsAsync(Guid urlId, Guid userId, DateTime? from = null, DateTime? to = null)
-    {
-        var url = await _unitOfWork.URLRepository.GetByIdAsync(urlId);
-        if (url == null || url.UserId != userId)
-            return null;
-
-        from ??= DateTime.UtcNow.AddDays(-30);
-        to ??= DateTime.UtcNow;
-
-        var dailyStats = await _unitOfWork.VisitRepository.GetVisitStatsByUrlIdAsync(urlId, from.Value, to.Value);
-        var recentVisits = await _unitOfWork.VisitRepository.GetByUrlIdAsync(urlId, 1, 10);
-
-        return new URLAnalyticsResponse(
-            url.Id,
-            url.ShortCode,
-            url.OriginalUrl,
-            url.ClickCount,
-            dailyStats,
-            recentVisits.Select(MapVisitToResponse)
-        );
-    }
-
     private static URLResponse MapToResponse(URL url) => new(
         url.Id,
         url.OriginalUrl,
@@ -107,16 +87,5 @@ public class URLService : IURLService
         url.CreatedAt,
         url.ExpiresAt,
         url.ClickCount
-    );
-
-    private static VisitResponse MapVisitToResponse(Visit visit) => new(
-        visit.Id,
-        visit.VisitedAt,
-        visit.VisitorIp,
-        visit.UserAgent,
-        visit.DeviceType,
-        visit.Browser,
-        visit.Referrer,
-        visit.Country
     );
 }

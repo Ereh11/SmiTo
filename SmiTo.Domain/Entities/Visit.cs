@@ -14,8 +14,8 @@ public class Visit
     public string UserAgent { get; set; } = null!;
     public string DeviceType { get; set; } = null!;
     public string Browser { get; set; } = null!;
-    public string? Referrer { get; set; } // Added referrer tracking
-    public string? Country { get; set; } // Added for geo analytics
+    public string? Referrer { get; set; }
+    public string? Country { get; set; }
     // Navigation property
     public URL URL { get; set; } = null!;
     public Guid URLId { get; set; }
